@@ -10,6 +10,6 @@
 * Vote on other users training plans and exercises
 * Log your trainings and see your progess over time
 * Dynamic calendar with drag and drop features to move your training days and exercises around
-* Etc
+* Build a profile and exchange with other passionate rock climbers
 
 Note: it's mostly a personal project of mine to practice a lot of developing skills I acquired in the past 2 years. But, if anybody's eventually interested in participating or see potential in that app, please contact me.

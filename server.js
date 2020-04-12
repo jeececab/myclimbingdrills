@@ -1,9 +1,13 @@
 const express = require('express');
-const mongoose = require('mongoose');
+require('dotenv').config();
+require('./db/mongoose');
 
-const app = express()
-const port = 5000
+const userRouter = require('./routers/user_router');
 
-app.get('/', (req, res) => res.send('Hello World!'))
+const app = express();
+const port = process.env.PORT;
 
-app.listen(port, () => console.log(`Server is running on port 5000`))
+app.use(express.json());
+app.use(userRouter);
+
+app.listen(port, () => console.log('Server is up on port ' + port));
