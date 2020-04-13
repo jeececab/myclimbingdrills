@@ -25,6 +25,22 @@ export async function signup(store, name, email, password) {
   }
 }
 
+/* export async function getToken(store) {
+  store.setState({ authLoading: true });
+
+  try {
+    const response = await axios.get('/users/token');
+    console.log(response)
+
+    store.setState({ authLoading: false });
+
+    return 'SUCCESS';
+  } catch (e) {
+    store.setState({ authLoading: false });
+    return 'ERROR';
+  }
+} */
+
 export async function login(store, email, password) {
   store.setState({ authLoading: true });
 
@@ -38,8 +54,6 @@ export async function login(store, email, password) {
       token,
       authLoading: false
     });
-
-    setCookie('auth_token', token, '1');
 
     return 'SUCCESS';
   } catch (e) {
@@ -76,7 +90,9 @@ export async function logout(store) {
 
 export async function me(store) {
   try {
-    const response = await axios.get('/users/me', { headers: { Authorization: `Bearer ${store.state.token}` } });
+    const response = await axios.get('/users/me', {
+      headers: { /* Authorization: `Bearer ${store.state.token}` */ withCredentials: true }
+    });
     console.log(response);
   } catch (e) {
     console.log(e.response.data.message);

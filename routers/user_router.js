@@ -21,11 +21,19 @@ router.post('/users', async (req, res) => {
 });
 
 // Auth
+router.get('/users/token', async (req, res) => {
+  try {
+    res.status(200).send();
+  } catch (e) {
+    res.status(400).send();
+  }
+});
+
 router.post('/users/login', async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.email, req.body.password);
     const token = await user.generateAuthToken();
-    res.send({ user, token });
+    res.cookie('auth_token', token, { httpOnly: true }).send({ user, token });
   } catch (e) {
     res.status(400).send({ message: 'Wrong email or password' });
   }
