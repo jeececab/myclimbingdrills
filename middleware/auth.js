@@ -13,7 +13,7 @@ const auth = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await User.findOne({ _id: decoded._id, 'tokens.token': token });
 
-    // Purges expired tickets
+    // Purges expired tokens
     const expiredTokens = user.tokens.filter(el => {
       const decoded = jwt.decode(el.token);
       const isExpired = decoded.exp < new Date().getTime() / 1000;
