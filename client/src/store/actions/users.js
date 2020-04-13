@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { setCookie } from '../../helpers/cookies';
 
 export async function login(store, email, password) {
   store.setState({ authLoading: true });
@@ -6,12 +7,15 @@ export async function login(store, email, password) {
   try {
     const response = await axios.post('/users/login', { email, password });
     const { user, token } = response.data;
+
     store.setState({
       isAuthenticated: true,
       user,
       token,
       authLoading: false
     });
+
+    setCookie('auth_token', token, '1');
 
     return 'SUCCESS';
   } catch (e) {
@@ -43,5 +47,14 @@ export async function logout(store) {
     console.log(e);
     store.setState({ authLoading: false });
     return 'ERROR';
+  }
+}
+
+export async function me(store) {
+  try {
+    const response = await axios.get('/users/me', { headers: { Authorization: `Bearer ${store.state.token}` } });
+    console.log(response);
+  } catch (e) {
+    console.log(e.response.data.message);
   }
 }

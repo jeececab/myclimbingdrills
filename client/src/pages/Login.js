@@ -18,7 +18,7 @@ function Login() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const a = await globalActions.auth.login(email, password);
+    const a = await globalActions.users.login(email, password);
 
     if (a === 'SUCCESS') {
       history.replace(from);

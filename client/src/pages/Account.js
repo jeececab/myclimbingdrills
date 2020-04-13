@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import useGlobal from '../store';
 
 const Account = () => {
-  const [globalState] = useGlobal();
+  const [globalState, globalActions] = useGlobal();
   const { authLoading, isAuthenticated, user } = globalState;
 
   return (
@@ -11,7 +11,7 @@ const Account = () => {
       {!authLoading && isAuthenticated && (
         <>
           <h1>Hello {user.name}</h1>
-          <Link to="/">Home</Link>
+          <button onClick={globalActions.users.me}>Me!</button>
         </>
       )}
 

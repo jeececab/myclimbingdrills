@@ -9,7 +9,7 @@ function Header() {
   const history = useHistory();
 
   async function logout() {
-    const status = await globalActions.auth.logout();
+    const status = await globalActions.users.logout();
     if (status === 200) history.replace({ pathname: '/' });
   }
 
