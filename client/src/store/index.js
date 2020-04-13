@@ -5,8 +5,8 @@ import * as actions from './actions';
 const initialState = {
   // Auth
   isAuthenticated: false,
-  authLoadingStatus: 'INITIAL',
-  token: null,
+  authLoading: false,
+  //token: null,
   user: null
 };
 

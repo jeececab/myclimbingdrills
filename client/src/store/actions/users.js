@@ -1,21 +1,18 @@
 import axios from 'axios';
-import { setCookie } from '../../helpers/cookies';
 
 export async function signup(store, name, email, password) {
   store.setState({ authLoading: true });
 
   try {
     const response = await axios.post('/users', { name, email, password });
-    const { user, token } = response.data;
+    const { user /* , token  */ } = response.data;
 
     store.setState({
       isAuthenticated: true,
       user,
-      token,
+      //token,
       authLoading: false
     });
-
-    setCookie('auth_token', token, '1');
 
     return 'SUCCESS';
   } catch (e) {
@@ -25,7 +22,7 @@ export async function signup(store, name, email, password) {
   }
 }
 
-/* export async function getToken(store) {
+export async function checkToken(store) {
   store.setState({ authLoading: true });
 
   try {
@@ -39,19 +36,19 @@ export async function signup(store, name, email, password) {
     store.setState({ authLoading: false });
     return 'ERROR';
   }
-} */
+}
 
 export async function login(store, email, password) {
   store.setState({ authLoading: true });
 
   try {
     const response = await axios.post('/users/login', { email, password });
-    const { user, token } = response.data;
+    const { user /* , token */ } = response.data;
 
     store.setState({
       isAuthenticated: true,
       user,
-      token,
+      //token,
       authLoading: false
     });
 
@@ -67,16 +64,12 @@ export async function logout(store) {
   store.setState({ authLoading: true });
 
   try {
-    const response = await axios.post(
-      '/users/logout',
-      {},
-      { headers: { Authorization: `Bearer ${store.state.token}` } }
-    );
+    const response = await axios.post('/users/logout');
 
     store.setState({
       isAuthenticated: false,
       user: null,
-      token: null,
+      //token: null,
       authLoading: false
     });
 
@@ -89,12 +82,20 @@ export async function logout(store) {
 }
 
 export async function me(store) {
+  store.setState({ authLoading: true });
+
   try {
-    const response = await axios.get('/users/me', {
-      headers: { /* Authorization: `Bearer ${store.state.token}` */ withCredentials: true }
+    const response = await axios.get('/users/me');
+
+    store.setState({
+      isAuthenticated: true,
+      user: response.data,
+      authLoading: false
     });
-    console.log(response);
+
+    return response.status;
   } catch (e) {
     console.log(e.response.data.message);
+    store.setState({ authLoading: false });
   }
 }
