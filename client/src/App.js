@@ -14,11 +14,11 @@ const App = () => {
   const { authLoading, isAuthenticated } = globalState;
 
   useEffect(() => {
-    async function checkToken() {
+    async function initUser() {
       await globalActions.users.me();
     }
 
-    if (!isAuthenticated) checkToken();
+    if (!isAuthenticated) initUser();
   }, [isAuthenticated, globalActions.users]);
 
   return (

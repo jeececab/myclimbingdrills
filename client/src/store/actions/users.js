@@ -5,12 +5,11 @@ export async function signup(store, name, email, password) {
 
   try {
     const response = await axios.post('/users', { name, email, password });
-    const { user /* , token  */ } = response.data;
+    const { user } = response.data;
 
     store.setState({
       isAuthenticated: true,
       user,
-      //token,
       authLoading: false
     });
 
@@ -22,33 +21,16 @@ export async function signup(store, name, email, password) {
   }
 }
 
-export async function checkToken(store) {
-  store.setState({ authLoading: true });
-
-  try {
-    const response = await axios.get('/users/token');
-    console.log(response)
-
-    store.setState({ authLoading: false });
-
-    return 'SUCCESS';
-  } catch (e) {
-    store.setState({ authLoading: false });
-    return 'ERROR';
-  }
-}
-
 export async function login(store, email, password) {
   store.setState({ authLoading: true });
 
   try {
     const response = await axios.post('/users/login', { email, password });
-    const { user /* , token */ } = response.data;
+    const { user } = response.data;
 
     store.setState({
       isAuthenticated: true,
       user,
-      //token,
       authLoading: false
     });
 
@@ -69,7 +51,6 @@ export async function logout(store) {
     store.setState({
       isAuthenticated: false,
       user: null,
-      //token: null,
       authLoading: false
     });
 
