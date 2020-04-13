@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import useGlobal from '../store';
-import LoginForm from '../components/Login/LoginForm';
+import SignupForm from '../components/Signup/SignupForm';
 
-function Login() {
+function Signup() {
   const [globalState] = useGlobal();
   const { authLoading, isAuthenticated } = globalState;
   const history = useHistory();
@@ -12,7 +12,7 @@ function Login() {
     if (isAuthenticated) history.replace({ pathname: '/account' });
   }, [isAuthenticated, history]);
 
-  return <>{authLoading ? <p>Loading...</p> : <LoginForm />}</>;
+  return <>{authLoading ? <p>Loading...</p> : <SignupForm />}</>;
 }
 
-export default Login;
+export default Signup;

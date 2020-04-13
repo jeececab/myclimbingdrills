@@ -37,7 +37,7 @@ function Header() {
         ) : (
           <ul className={styles.navList}>
             <li>
-              <Link to="/login" className={styles.logBtn}>
+              <Link to="/signup" className={styles.logBtn}>
                 Sign up
               </Link>
             </li>
