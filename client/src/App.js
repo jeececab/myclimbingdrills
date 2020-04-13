@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import Header from './components/Layout/Header';
 import PrivateRoute from './components/PrivateRoute';
 import Homepage from './pages/Homepage';
 import Login from './pages/Login';
@@ -10,6 +10,8 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+        <Header />
+
         <Switch>
           <Route exact path={'/'}>
             <Homepage />

@@ -4,7 +4,7 @@ import useGlobal from '../store';
 
 function Login() {
   const [globalState, globalActions] = useGlobal();
-  const { authLoadingStatus, isAuthenticated } = globalState;
+  const { authLoading, isAuthenticated } = globalState;
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: '/' } };
@@ -27,7 +27,7 @@ function Login() {
 
   return (
     <>
-      {authLoadingStatus === 'INITIAL' && (
+      {!authLoading && (
         <form onSubmit={handleSubmit}>
           <input name="email" type="email" placeholder="Email address" required />
           <input name="password" type="password" placeholder="Password" required />
@@ -35,7 +35,7 @@ function Login() {
         </form>
       )}
 
-      {authLoadingStatus === 'LOADING' && <p>Loading...</p>}
+      {authLoading && <p>Loading...</p>}
     </>
   );
 }

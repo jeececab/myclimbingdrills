@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo h1 {
+  font-size: 1.25rem;
+  margin-left: 0.25em;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navList li a {
+  color: black;
+  margin: 0.5em 0.5em 0.5em 0;
+  text-decoration: none;
+}
+
+.logBtn {
+  background: none;
+  border: 1px solid black;
+  color: black;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0.5em 0.5em 0.5em 0;
+  padding: 0.5em 0.75em;
+  text-decoration: none;
+}
