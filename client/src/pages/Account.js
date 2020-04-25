@@ -1,5 +1,6 @@
 import React from 'react';
 import useGlobal from '../store';
+import Calendar from '../components/Calendar/Calendar'
 
 const Account = () => {
   const [globalState] = useGlobal();
@@ -7,7 +8,12 @@ const Account = () => {
 
   return (
     <>
-      {!authLoading && isAuthenticated && <h1>Hello {user.name}</h1>}
+      {!authLoading && isAuthenticated && (
+        <div className="container">
+          <h1>Hello {user.name}</h1>
+          <Calendar />
+        </div>
+      )}
 
       {authLoading && <p>Loading...</p>}
     </>
