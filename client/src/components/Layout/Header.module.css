@@ -1,12 +1,16 @@
 .header {
+  background: var(--black);
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 40px;
   width: 100%;
 }
 
 .logo h1 {
   font-size: 1.25rem;
+  font-weight: bold;
   margin-left: 0.5em;
 }
 
@@ -19,18 +23,69 @@
 }
 
 .navList li a {
-  color: black;
+  color: var(--white);
   margin: 0.5em 0.5em 0.5em 0;
   text-decoration: none;
 }
 
 .logBtn {
   background: none;
-  border: 1px solid black;
-  color: black;
+  border: 1px solid var(--white);
+  color: var(--white);
   display: inline-block;
   font-size: 1rem;
   margin: 0.5em 0.5em 0.5em 0;
   padding: 0.5em 0.75em;
   text-decoration: none;
+}
+
+.hamburger {
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 2px 0 8px 15px;
+  margin-right: 7px;
+  border-bottom-left-radius: 100%;
+  transition: ease-in-out 0.25s;
+  z-index: 3;
+}
+
+.hamburger div {
+  height: 4px;
+  background-color: var(--white);
+  margin: 6px auto;
+  transition: transform ease-in-out 0.125s;
+}
+
+.hamburger div:nth-child(1) {
+  width: 34px;
+}
+
+.hamburger div:nth-child(2) {
+  width: 22px;
+}
+
+.hamburger div:nth-child(3) {
+  width: 10px;
+}
+
+.hamburger:hover div {
+  background-color: var(--white);
+}
+
+.hamburger.displayed div:nth-child(1) {
+  transform: translate(4px, 10px) rotate(45deg);
+}
+
+.hamburger.displayed div:nth-child(2) {
+  transform: translate(4px, 0px) rotate(-45deg);
+}
+
+.hamburger.displayed div:nth-child(3) {
+  opacity: 0;
+}
+
+.hamburger:focus {
+  outline: none;
 }
