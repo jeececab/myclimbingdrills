@@ -73,6 +73,16 @@
   color: var(--green);
 }
 
+.logoutLi {
+  text-align: center;
+}
+
+.logout {
+  color: var(--green);
+  background: transparent;
+  margin-bottom: 0;
+}
+
 .hamburger {
   cursor: pointer;
   position: fixed;

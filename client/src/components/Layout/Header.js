@@ -55,8 +55,8 @@ function Header() {
                 About
               </NavLink>
             </li>
-            <li>
-              <button onClick={logout} className={styles.logBtn}>
+            <li className={styles.logoutLi}>
+              <button onClick={logout} className={`${styles.btn} ${styles.logout}`}>
                 Log out
               </button>
             </li>
