@@ -37,38 +37,55 @@ function Header() {
         <div aria-hidden="true"></div>
       </div>
 
-      {displayMenu && (
-        <nav>
-          {isAuthenticated ? (
+      <nav className={`${styles.nav} ${displayMenu ? styles.activeMenu : ''}`}>
+        {isAuthenticated ? (
+          <ul className={styles.navList}>
+            <li>
+              <NavLink to="/" activeClassName={styles.activeLink}>
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/account" activeClassName={styles.activeLink}>
+                Account
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/account" activeClassName={styles.activeLink}>
+                About
+              </NavLink>
+            </li>
+            <li>
+              <button onClick={logout} className={styles.logBtn}>
+                Log out
+              </button>
+            </li>
+          </ul>
+        ) : (
+          <>
             <ul className={styles.navList}>
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/" activeClassName={styles.activeLink} exact>
+                  Home
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/account">Account</NavLink>
-              </li>
-              <li>
-                <button onClick={logout} className={styles.logBtn}>
-                  Log out
-                </button>
+                <NavLink to="/about" activeClassName={styles.activeLink}>
+                  About
+                </NavLink>
               </li>
             </ul>
-          ) : (
-            <ul className={styles.navList}>
-              <li>
-                <Link to="/signup" className={styles.logBtn}>
-                  Sign up
-                </Link>
-              </li>
-              <li>
-                <Link to="/login" className={styles.logBtn}>
-                  Login
-                </Link>
-              </li>
-            </ul>
-          )}
-        </nav>
-      )}
+            <div className={styles.navBtns}>
+              <Link to="/login" className={`${styles.btn} ${styles.login}`}>
+                Login
+              </Link>
+              <Link to="/signup" className={`${styles.btn} ${styles.signup}`}>
+                Sign up
+              </Link>
+            </div>
+          </>
+        )}
+      </nav>
     </div>
   );
 }
