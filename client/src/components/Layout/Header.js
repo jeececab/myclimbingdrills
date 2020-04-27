@@ -51,8 +51,18 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => toggleDisplayMenu(false)} to="/about" activeClassName={styles.activeLink}>
-                About
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/training" activeClassName={styles.activeLink}>
+                Current training
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/templates" activeClassName={styles.activeLink}>
+                Templates
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/exercises" activeClassName={styles.activeLink}>
+                Exercises
               </NavLink>
             </li>
             <li className={styles.logoutLi}>

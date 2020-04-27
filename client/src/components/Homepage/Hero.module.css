@@ -32,7 +32,7 @@
 }
 
 .signup {
-  background: var(--green);
+  background: var(--red);
   border-radius: 50px;
   display: inline-block;
   color: var(--white);
