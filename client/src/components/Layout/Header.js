@@ -41,17 +41,17 @@ function Header() {
         {isAuthenticated ? (
           <ul className={styles.navList}>
             <li>
-              <NavLink to="/" activeClassName={styles.activeLink}>
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/" activeClassName={styles.activeLink} exact>
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/account" activeClassName={styles.activeLink}>
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/account" activeClassName={styles.activeLink}>
                 Account
               </NavLink>
             </li>
             <li>
-              <NavLink to="/account" activeClassName={styles.activeLink}>
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/about" activeClassName={styles.activeLink}>
                 About
               </NavLink>
             </li>
@@ -65,21 +65,21 @@ function Header() {
           <>
             <ul className={styles.navList}>
               <li>
-                <NavLink to="/" activeClassName={styles.activeLink} exact>
+                <NavLink onClick={() => toggleDisplayMenu(false)} to="/" activeClassName={styles.activeLink} exact>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about" activeClassName={styles.activeLink}>
+                <NavLink onClick={() => toggleDisplayMenu(false)} to="/about" activeClassName={styles.activeLink}>
                   About
                 </NavLink>
               </li>
             </ul>
             <div className={styles.navBtns}>
-              <Link to="/login" className={`${styles.btn} ${styles.login}`}>
+              <Link onClick={() => toggleDisplayMenu(false)} to="/login" className={`${styles.btn} ${styles.login}`}>
                 Login
               </Link>
-              <Link to="/signup" className={`${styles.btn} ${styles.signup}`}>
+              <Link onClick={() => toggleDisplayMenu(false)} to="/signup" className={`${styles.btn} ${styles.signup}`}>
                 Sign up
               </Link>
             </div>

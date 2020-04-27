@@ -12,7 +12,13 @@ function Login() {
     if (isAuthenticated) history.replace({ pathname: '/account' });
   }, [isAuthenticated, history]);
 
-  return authLoading ? <p>Loading...</p> : <LoginForm />;
+  return authLoading ? (
+    <p>Loading...</p>
+  ) : (
+    <div className="container">
+      <LoginForm />
+    </div>
+  );
 }
 
 export default Login;

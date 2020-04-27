@@ -12,7 +12,13 @@ function Signup() {
     if (isAuthenticated) history.replace({ pathname: '/account' });
   }, [isAuthenticated, history]);
 
-  return authLoading ? <p>Loading...</p> : <SignupForm />;
+  return authLoading ? (
+    <p>Loading...</p>
+  ) : (
+    <div className="container">
+      <SignupForm />
+    </div>
+  );
 }
 
 export default Signup;
