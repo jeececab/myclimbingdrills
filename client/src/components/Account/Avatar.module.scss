@@ -1,6 +1,8 @@
-
-
 .imgWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
   cursor: pointer;
   border-radius: 0px;
   height: 115px;
@@ -9,9 +11,13 @@
   overflow: hidden;
 }
 
+.imgWrapper p {
+  color: var(--black);
+}
+
 .imgWrapper img {
-  height: 115px;
-  width: 115px;
+  height: 100%;
+  width: 100%;
 }
 
 .imgChange {
@@ -64,8 +70,8 @@
 }
 
 .modalImgWrapper img {
-  height: 160px;
-  width: 160px;
+  height: 100%;
+  width: 100%;
 }
 
 .modalButtons {

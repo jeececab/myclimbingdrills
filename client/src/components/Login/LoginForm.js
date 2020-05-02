@@ -14,7 +14,7 @@ function LoginForm() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const status = await globalActions.users.login(email, password);
+    const status = await globalActions.user.login(email, password);
 
     if (status === 'SUCCESS') {
       history.replace(from);

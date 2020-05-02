@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import useGlobal from '../../store';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 
 function Header() {
   const [globalState, globalActions] = useGlobal();
@@ -10,7 +10,7 @@ function Header() {
   const [displayMenu, toggleDisplayMenu] = useState(false);
 
   async function logout() {
-    const status = await globalActions.users.logout();
+    const status = await globalActions.user.logout();
     if (status === 200) history.replace({ pathname: '/' });
   }
 

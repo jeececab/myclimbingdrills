@@ -3,11 +3,14 @@ import globalHook from 'use-global-hook';
 import * as actions from './actions';
 
 const initialState = {
+  message: { content: 'sdfsd', show: false },
   // Auth
   isAuthenticated: false,
   authLoading: false,
-  // token: null,
-  user: null
+  user: null,
+  userInfoLoading: false,
+  // Avatar
+  avatarLoading: false
 };
 
 const useGlobal = globalHook(React, initialState, actions);

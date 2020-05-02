@@ -28,6 +28,12 @@ const userSchema = new mongoose.Schema(
       trim: true,
       match: /^((?!password).)*$/
     },
+    bio: {
+      type: String,
+      default: '',
+      maxlength: 242,
+      trim: true
+    },
     age: {
       type: Number,
       default: 0,
@@ -86,6 +92,11 @@ userSchema.statics.findByCredentials = async (email, password) => {
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) throw new Error('Unable to login');
   return user;
+};
+
+userSchema.statics.confirmPassword = async (user, password) => {
+  const isMatch = await bcrypt.compare(password, user.password);
+  return isMatch;
 };
 
 //Hash the plain text password before saving

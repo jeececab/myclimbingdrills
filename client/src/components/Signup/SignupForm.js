@@ -13,7 +13,7 @@ function SignupForm() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const status = await globalActions.users.signup(name, email, password);
+    const status = await globalActions.user.signup(name, email, password);
 
     if (status === 'SUCCESS') history.replace({ pathname: '/account' });
   };

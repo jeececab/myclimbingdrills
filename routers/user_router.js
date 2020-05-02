@@ -67,7 +67,15 @@ router.get('/users/me', auth, async (req, res) => {
 // UPDATE
 router.patch('/users/me', auth, async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['name', 'email', 'password', 'age'];
+  
+  if (req.body.oldPassword) {
+    const oldPasswordIndex = updates.findIndex(el => el === 'oldPassword');
+    updates.splice(oldPasswordIndex, 1);
+    const isMatch = await User.confirmPassword(req.user, req.body.oldPassword);
+    if (!isMatch) return res.status(400).send({ error: 'Wrong current password' });
+  }
+
+  const allowedUpdates = ['name', 'email', 'password', 'age', 'bio'];
   const isValid = updates.every(update => allowedUpdates.includes(update));
 
   if (!isValid) return res.status(400).send({ error: 'Invalid updates' });
@@ -120,19 +128,6 @@ router.post(
     res.status(400).send({ error: error.message });
   }
 );
-
-/* router.get('/users/:id/avatar', async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id);
-
-    if (!user || !user.avatar) throw new Error();
-
-    res.set('Content-Type', 'image/png');
-    res.send(user.avatar);
-  } catch (e) {
-    res.status(404).send();
-  }
-}); */
 
 router.delete('/users/me/avatar', auth, async (req, res) => {
   try {

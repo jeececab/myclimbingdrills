@@ -15,7 +15,7 @@ export async function signup(store, name, email, password) {
 
     return 'SUCCESS';
   } catch (e) {
-    console.log(e.response.data.message);
+    console.log(e.response.data.error);
     store.setState({ authLoading: false });
     return 'ERROR';
   }
@@ -36,7 +36,7 @@ export async function login(store, email, password) {
 
     return 'SUCCESS';
   } catch (e) {
-    console.log(e.response.data.message);
+    console.log(e.response.data.error);
     store.setState({ authLoading: false });
     return 'ERROR';
   }
@@ -76,28 +76,53 @@ export async function me(store) {
 
     return response.status;
   } catch (e) {
-    console.log(e.response.data.message);
+    console.log(e.response.data.error);
     store.setState({ authLoading: false });
   }
 }
 
+export async function updateUserInfo(store, update) {
+  store.setState({ userInfoLoading: true });
+  try {
+    const response = await axios.patch('/users/me', update);
+    const user = response.data;
+    store.setState({ userInfoLoading: false });
+    store.actions.ui.showMessage('Changes saved');
+    return user;
+  } catch (e) {
+    console.log(e.response.data.error);
+    if (e.response.data.error.includes('password')) {
+      store.actions.ui.showMessage(e.response.data.error);
+    }
+    store.setState({ userInfoLoading: false });
+  }
+}
+
 export async function uploadAvatar(store, formData) {
+  store.setState({ avatarLoading: true });
   try {
     const response = await axios.post('/users/me/avatar', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
     });
+
     store.setState({ user: { ...store.state.user, avatar: response.data.avatar } });
+    store.setState({ avatarLoading: false });
     return response.data.avatar;
   } catch (e) {
-    console.log(e.response.data.message);
+    store.setState({ avatarLoading: false });
+    console.log(e.response.data.error);
   }
 }
 
 export async function deleteAvatar(store) {
+  store.setState({ avatarLoading: true });
   try {
     await axios.delete('/users/me/avatar');
+
     store.setState({ user: { ...store.state.user, avatar: null } });
+    store.setState({ avatarLoading: false });
   } catch (e) {
-    console.log(e.response.data.message);
+    console.log(e.response.data.error);
+    store.setState({ avatarLoading: false });
   }
 }

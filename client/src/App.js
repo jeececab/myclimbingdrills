@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import useGlobal from './store';
 import Header from './components/Layout/Header';
+import Message from './components/Layout/Message';
 import PrivateRoute from './components/PrivateRoute';
 import Homepage from './pages/Homepage';
 import Signup from './pages/Signup';
@@ -15,11 +16,11 @@ const App = () => {
 
   useEffect(() => {
     async function initUser() {
-      await globalActions.users.me();
+      await globalActions.user.me();
     }
 
     if (!isAuthenticated) initUser();
-  }, [isAuthenticated, globalActions.users]);
+  }, [isAuthenticated, globalActions.user]);
 
   return (
     <div className="App">
@@ -44,6 +45,8 @@ const App = () => {
             </PrivateRoute>
             <Route component={Page404} />
           </Switch>
+
+          <Message />
         </BrowserRouter>
       )}
     </div>

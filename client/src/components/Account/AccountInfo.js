@@ -2,6 +2,7 @@ import React from 'react';
 import useGlobal from '../../store';
 import Avatar from './Avatar';
 import InfoForm from './InfoForm';
+import ChangePasswordForm from './ChangePasswordForm';
 import styles from './AccountInfo.module.css';
 
 const AccountInfo = () => {
@@ -15,8 +16,7 @@ const AccountInfo = () => {
         <h1>{user.name}</h1>
       </div>
       <InfoForm />
-      {/* InfoForm */}
-      {/* ChangePasswordForm */}
+      <ChangePasswordForm />
       {/* DeleteAccount */}
     </div>
   );
