@@ -14,22 +14,23 @@
 .tags {
   background: rgba(0, 0, 0, 0.7);
   padding: 1.75em 1.5em 1.5em 40px;
+
+  p {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 0.5em;
+    line-height: 1.4;
+  }
+  
+  h2 {
+    color: var(--white);
+    font-family: 'Khula', sans-serif;
+    font-size: 3.25rem;
+    text-transform: uppercase;
+    margin: 0;
+  }
 }
 
-.tags p {
-  font-size: 1rem;
-  font-weight: 400;
-  margin-top: 0.5em;
-  line-height: 1.4;
-}
-
-.tags h2 {
-  color: var(--white);
-  font-family: 'Khula', sans-serif;
-  font-size: 3.25rem;
-  text-transform: uppercase;
-  margin: 0;
-}
 
 .signup {
   background: var(--red);

@@ -12,6 +12,11 @@ function SignupForm() {
     const name = e.target.name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const confirm_password = e.target.confirm_password.value;
+
+    if (password !== confirm_password) {
+      return globalActions.ui.showMessage("Passwords don't match");
+    }
 
     const status = await globalActions.user.signup(name, email, password);
 
@@ -23,8 +28,10 @@ function SignupForm() {
       <input name="name" type="text" placeholder="Username" required />
       <input name="email" type="email" placeholder="Email address" required />
       <input name="password" type="password" placeholder="Password" required />
-      <input name="password-confirm" type="password" placeholder="Confirm password" required />
-      <button className="btn btn-primary" type="submit">Submit</button>
+      <input name="confirm_password" type="password" placeholder="Confirm password" required />
+      <button className="btn btn-primary" type="submit">
+        Submit
+      </button>
     </form>
   );
 }

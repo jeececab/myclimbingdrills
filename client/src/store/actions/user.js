@@ -56,7 +56,24 @@ export async function logout(store) {
 
     return response.status;
   } catch (e) {
-    console.log(e);
+    console.log(e.response.data.error);
+    store.setState({ authLoading: false });
+    return 'ERROR';
+  }
+}
+
+export async function deleteAccount(store, history) {
+  store.setState({ authLoading: true });
+  try {
+    await axios.delete('/users/me');
+    store.setState({ user: null, isAuthenticated: false });
+    history.push('/');
+    store.setState({ authLoading: false });
+    setTimeout(() => {
+      store.actions.ui.showMessage('Account deleted successfully');
+    }, 1000)
+  } catch (e) {
+    console.log(e.response.data.error);
     store.setState({ authLoading: false });
     return 'ERROR';
   }

@@ -14,7 +14,7 @@ router.post('/users', async (req, res) => {
     await user.save();
     //sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
-    res.status(201).send({ user, token });
+    res.cookie('auth_token', token, { httpOnly: true }).send({ user, token });
   } catch (e) {
     res.status(400).send();
   }
@@ -67,7 +67,7 @@ router.get('/users/me', auth, async (req, res) => {
 // UPDATE
 router.patch('/users/me', auth, async (req, res) => {
   const updates = Object.keys(req.body);
-  
+
   if (req.body.oldPassword) {
     const oldPasswordIndex = updates.findIndex(el => el === 'oldPassword');
     updates.splice(oldPasswordIndex, 1);

@@ -45,10 +45,9 @@ const App = () => {
             </PrivateRoute>
             <Route component={Page404} />
           </Switch>
-
-          <Message />
         </BrowserRouter>
       )}
+      <Message />
     </div>
   );
 };

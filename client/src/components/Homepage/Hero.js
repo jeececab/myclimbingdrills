@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Hero.module.css';
+import styles from './Hero.module.scss';
 import { Link } from 'react-router-dom';
 
 const Hero = () => {
@@ -10,7 +10,7 @@ const Hero = () => {
         <h2>Train.</h2>
         <h2>Share.</h2>
         <p>Choose an existing training program or create your own.</p>
-        <p>Train and log your progress.</p>
+        <p>Train and log your progress with drills widgets.</p>
         <p>Share your created programs and drills with others.</p>
         <p>Vote for the best ones to help others choose well.</p>
       </div>
