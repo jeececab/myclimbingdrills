@@ -51,22 +51,22 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => toggleDisplayMenu(false)} to="/training" activeClassName={styles.activeLink}>
-                Current training
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/current-program" activeClassName={styles.activeLink}>
+                Current program
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => toggleDisplayMenu(false)} to="/templates" activeClassName={styles.activeLink}>
-                Templates
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/programs" activeClassName={styles.activeLink}>
+                Programs
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => toggleDisplayMenu(false)} to="/exercises" activeClassName={styles.activeLink}>
-                Exercises
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/drills" activeClassName={styles.activeLink}>
+                Drills
               </NavLink>
             </li>
             <li className={styles.logoutLi}>
-              <button onClick={logout} className={`${styles.btn} ${styles.logout}`}>
+              <button onClick={logout} className="btn btn-primary--outline">
                 Log out
               </button>
             </li>
@@ -86,10 +86,10 @@ function Header() {
               </li>
             </ul>
             <div className={styles.navBtns}>
-              <Link onClick={() => toggleDisplayMenu(false)} to="/login" className={`${styles.btn} ${styles.login}`}>
+              <Link onClick={() => toggleDisplayMenu(false)} to="/login" className="btn btn-primary">
                 Login
               </Link>
-              <Link onClick={() => toggleDisplayMenu(false)} to="/signup" className={`${styles.btn} ${styles.signup}`}>
+              <Link onClick={() => toggleDisplayMenu(false)} to="/signup" className="btn btn-primary--outline">
                 Sign up
               </Link>
             </div>

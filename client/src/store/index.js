@@ -6,7 +6,7 @@ const initialState = {
   // Auth
   isAuthenticated: false,
   authLoading: false,
-  //token: null,
+  // token: null,
   user: null
 };
 

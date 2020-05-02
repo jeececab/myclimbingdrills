@@ -13,13 +13,13 @@
 
 .tags {
   background: rgba(0, 0, 0, 0.7);
-  padding: 1.75em 1.5em 1.5em 45px;
+  padding: 1.75em 1.5em 1.5em 40px;
 }
 
 .tags p {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
-  margin-top: 0.4em;
+  margin-top: 0.5em;
   line-height: 1.4;
 }
 

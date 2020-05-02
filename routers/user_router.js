@@ -114,14 +114,14 @@ router.post(
 
     req.user.avatar = buffer;
     await req.user.save();
-    res.send();
+    res.send(req.user);
   },
   (error, req, res, next) => {
     res.status(400).send({ error: error.message });
   }
 );
 
-router.get('/users/:id/avatar', async (req, res) => {
+/* router.get('/users/:id/avatar', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
 
@@ -132,7 +132,7 @@ router.get('/users/:id/avatar', async (req, res) => {
   } catch (e) {
     res.status(404).send();
   }
-});
+}); */
 
 router.delete('/users/me/avatar', auth, async (req, res) => {
   try {

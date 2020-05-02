@@ -80,3 +80,24 @@ export async function me(store) {
     store.setState({ authLoading: false });
   }
 }
+
+export async function uploadAvatar(store, formData) {
+  try {
+    const response = await axios.post('/users/me/avatar', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' }
+    });
+    store.setState({ user: { ...store.state.user, avatar: response.data.avatar } });
+    return response.data.avatar;
+  } catch (e) {
+    console.log(e.response.data.message);
+  }
+}
+
+export async function deleteAvatar(store) {
+  try {
+    await axios.delete('/users/me/avatar');
+    store.setState({ user: { ...store.state.user, avatar: null } });
+  } catch (e) {
+    console.log(e.response.data.message);
+  }
+}

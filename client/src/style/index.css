@@ -23,5 +23,42 @@ h2 {
   margin: 0 auto;
   padding-top: 40px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
+}
+
+.content-container {
+  padding: 0 1em;
+}
+
+.btn {
+  border-radius: 50px;
+  display: inline-block;
+  font-size: 1.125rem;
+  margin: 0.6em 0.5em 0.5em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+}
+
+.btn-primary {
+  border: 2px solid var(--red);
+  background: var(--red);
+  color: var(--white);
+}
+
+.btn-primary--outline {
+  border: 2px solid var(--red);
+  background: transparent;
+  color: var(--red);
+}
+
+.btn-secondary {
+  border: 2px solid var(--darkblue);
+  background: var(--darkblue);
+  color: var(--white);
+}
+
+.btn-secondary--outline {
+  border: 2px solid var(--darkblue);
+  background: transparent;
+  color: var(--darkblue);
 }

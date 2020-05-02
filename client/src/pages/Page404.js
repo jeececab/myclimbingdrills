@@ -9,7 +9,9 @@ function Page404() {
     <p>Loading...</p>
   ) : (
     <div className="container">
-      <h1>404 - Not found...</h1>
+      <div className="content-container">
+        <h1>404 - Not found...</h1>
+      </div>
     </div>
   );
 }

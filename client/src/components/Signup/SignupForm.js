@@ -24,7 +24,7 @@ function SignupForm() {
       <input name="email" type="email" placeholder="Email address" required />
       <input name="password" type="password" placeholder="Password" required />
       <input name="password-confirm" type="password" placeholder="Confirm password" required />
-      <button type="submit">Submit</button>
+      <button className="btn btn-primary" type="submit">Submit</button>
     </form>
   );
 }

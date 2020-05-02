@@ -1,0 +1,70 @@
+.avatarSection {
+  margin-top: 2em;
+}
+
+.imgWrapper {
+  cursor: pointer;
+  border-radius: 0px;
+  height: 120px;
+  width: 120px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.imgWrapper img {
+  height: 120px;
+  width: 120px;
+}
+
+.modalContainer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.modalBackdrop {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.modalContent {
+  position: relative;
+  background: var(--white);
+  margin: 5em auto 0;
+  padding: 1.5em 0 1.25em;
+  width: 90%;
+  max-width: 500px;
+  z-index: 3;
+}
+
+.modalImgWrapper {
+  border: 2px solid var(--darkblue);
+  border-radius: 0px;
+  height: 160px;
+  width: 160px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.modalImgWrapper img {
+  height: 160px;
+  width: 160px;
+}
+
+.modalButtons {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.modalButtons button {
+  margin: 0.25em 0;
+}
