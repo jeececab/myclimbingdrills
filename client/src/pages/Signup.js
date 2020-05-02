@@ -5,16 +5,14 @@ import SignupForm from '../components/Signup/SignupForm';
 
 function Signup() {
   const [globalState] = useGlobal();
-  const { authLoading, isAuthenticated } = globalState;
+  const { isAuthenticated } = globalState;
   const history = useHistory();
 
   useEffect(() => {
     if (isAuthenticated) history.replace({ pathname: '/account' });
   }, [isAuthenticated, history]);
 
-  return authLoading ? (
-    <p>Loading...</p>
-  ) : (
+  return (
     <div className="container">
       <SignupForm />
     </div>

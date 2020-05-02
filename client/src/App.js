@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import useGlobal from './store';
+import LoadingSpinner from './components/Layout/LoadingSpinner';
 import Header from './components/Layout/Header';
 import Message from './components/Layout/Message';
 import PrivateRoute from './components/Routing/PrivateRoute';
@@ -25,7 +26,7 @@ const App = () => {
   return (
     <div className="App">
       {authLoading ? (
-        <p>Loading...</p>
+        <LoadingSpinner />
       ) : (
         <BrowserRouter>
           <Header />
