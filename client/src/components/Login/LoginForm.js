@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 import useGlobal from '../../store';
-import styles from './LoginForm.module.css';
+import styles from './LoginForm.module.scss';
 
 function LoginForm() {
   const [, globalActions] = useGlobal();

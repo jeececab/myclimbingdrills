@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import useGlobal from './store';
 import Header from './components/Layout/Header';
 import Message from './components/Layout/Message';
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/Routing/PrivateRoute';
 import Homepage from './pages/Homepage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';

@@ -1,6 +1,6 @@
 import React from 'react';
 //import useGlobal from '../store';
-import styles from './Calendar.module.css'
+import styles from './Calendar.module.scss'
 
 const Account = () => {
   //const [globalState] = useGlobal();

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import useGlobal from '../../store';
-import styles from './SignupForm.module.css';
+import styles from './SignupForm.module.scss';
 
 function SignupForm() {
   const [, globalActions] = useGlobal();

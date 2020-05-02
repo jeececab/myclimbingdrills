@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import useGlobal from '../store';
+import useGlobal from '../../store';
 
 function PrivateRoute({ children, ...rest }) {
   const [globalState] = useGlobal();
