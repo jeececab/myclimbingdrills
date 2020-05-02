@@ -9,9 +9,9 @@ const Hero = () => {
         <h2>Schedule.</h2>
         <h2>Train.</h2>
         <h2>Share.</h2>
-        <p>Choose an existing training program or create your own (sport, bouldering, trad, etc).</p>
+        <p>Choose an existing training program or create your own.</p>
         <p>Train and log your progress.</p>
-        <p>Share your created programs and exercises with others.</p>
+        <p>Share your created programs and drills with others.</p>
         <p>Vote for the best ones to help others choose well.</p>
       </div>
       <Link to="/signup" className={styles.signup}>

@@ -18,7 +18,7 @@
 .nav {
   border-bottom: 2px solid rgb(36, 36, 36);
   border-left: 2px solid rgb(36, 36, 36);
-  padding: 30px 0 1em;
+  padding: 30px 0 0.5em;
   position: fixed;
   top: 0;
   right: -330px;
@@ -50,8 +50,21 @@
   text-decoration: none;
 }
 
+.navList a:hover::after {
+  color: var(--red);
+  content: ' — ';
+  position: relative;
+  left: 8px;
+}
+
 .navList a.activeLink {
   color: var(--red);
+}
+
+.navList a.activeLink::after {
+  content: ' — ';
+  position: relative;
+  left: 8px;
 }
 
 .navBtns {
@@ -63,12 +76,6 @@
 .navList .logoutLi {
   margin: 1em 1.5em 0.5em;
   text-align: center;
-}
-
-.logout {
-  color: var(--red);
-  background: transparent;
-  margin-bottom: 0;
 }
 
 .hamburger {

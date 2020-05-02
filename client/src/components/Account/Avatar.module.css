@@ -16,6 +16,17 @@
   width: 120px;
 }
 
+.imgChange {
+  cursor: pointer;
+  font-size: 0.875em;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.imgChange:hover {
+  color: var(--red);
+}
+
 .modalContainer {
   position: fixed;
   left: 0;
@@ -35,6 +46,7 @@
 }
 
 .modalContent {
+  border-radius: 10px;
   position: relative;
   background: var(--white);
   margin: 5em auto 0;

@@ -1,5 +1,7 @@
 import React from 'react';
 import useGlobal from '../../store';
+import Avatar from './Avatar';
+import InfoForm from './InfoForm';
 //import styles from './AccountInfo.module.css';
 
 const AccountInfo = () => {
@@ -8,7 +10,12 @@ const AccountInfo = () => {
 
   return (
     <div className="content-container">
-      <h1>Hello {user.name}</h1>
+      <h1>{user.name}</h1>
+      <Avatar />
+      <InfoForm />
+      {/* InfoForm */}
+      {/* ChangePasswordForm */}
+      {/* DeleteAccount */}
     </div>
   );
 };

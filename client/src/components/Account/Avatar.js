@@ -51,6 +51,7 @@ const Avatar = () => {
           <img src={placeholderImg} alt="Placeholder avatar" />
         )}
       </div>
+      <p className={styles.imgChange} onClick={() => setModalIsDisplayed(true)}>Change profile photo</p>
 
       {modalIsDisplayed && (
         <div className={styles.modalContainer}>

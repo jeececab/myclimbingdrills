@@ -46,12 +46,11 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink onClick={() => toggleDisplayMenu(false)} to="/account" activeClassName={styles.activeLink}>
-                Account
-              </NavLink>
-            </li>
-            <li>
-              <NavLink onClick={() => toggleDisplayMenu(false)} to="/current-program" activeClassName={styles.activeLink}>
+              <NavLink
+                onClick={() => toggleDisplayMenu(false)}
+                to="/current-program"
+                activeClassName={styles.activeLink}
+              >
                 Current program
               </NavLink>
             </li>
@@ -63,6 +62,11 @@ function Header() {
             <li>
               <NavLink onClick={() => toggleDisplayMenu(false)} to="/drills" activeClassName={styles.activeLink}>
                 Drills
+              </NavLink>
+            </li>
+            <li>
+              <NavLink onClick={() => toggleDisplayMenu(false)} to="/account" activeClassName={styles.activeLink}>
+                Account
               </NavLink>
             </li>
             <li className={styles.logoutLi}>
