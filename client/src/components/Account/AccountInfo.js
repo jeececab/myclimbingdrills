@@ -2,7 +2,7 @@ import React from 'react';
 import useGlobal from '../../store';
 import Avatar from './Avatar';
 import InfoForm from './InfoForm';
-//import styles from './AccountInfo.module.css';
+import styles from './AccountInfo.module.css';
 
 const AccountInfo = () => {
   const [globalState] = useGlobal();
@@ -10,8 +10,10 @@ const AccountInfo = () => {
 
   return (
     <div className="content-container">
-      <h1>{user.name}</h1>
-      <Avatar />
+      <div className={styles.top}>
+        <Avatar />
+        <h1>{user.name}</h1>
+      </div>
       <InfoForm />
       {/* InfoForm */}
       {/* ChangePasswordForm */}
