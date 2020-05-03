@@ -35,7 +35,7 @@ router.post('/users/login', async (req, res) => {
     const token = await user.generateAuthToken();
     res.cookie('auth_token', token, { httpOnly: true }).send({ user, token });
   } catch (e) {
-    res.status(400).send({ message: 'Wrong email or password' });
+    res.status(400).send({ error: 'Wrong email or password' });
   }
 });
 

@@ -37,6 +37,7 @@ export async function login(store, email, password) {
     return 'SUCCESS';
   } catch (e) {
     console.log(e.response.data.error);
+    store.actions.ui.showMessage(e.response.data.error)
     store.setState({ authLoading: false });
     return 'ERROR';
   }
@@ -71,7 +72,7 @@ export async function deleteAccount(store, history) {
     store.setState({ authLoading: false });
     setTimeout(() => {
       store.actions.ui.showMessage('Account deleted successfully');
-    }, 1000)
+    }, 1000);
   } catch (e) {
     console.log(e.response.data.error);
     store.setState({ authLoading: false });
@@ -104,6 +105,7 @@ export async function updateUserInfo(store, update) {
     const response = await axios.patch('/users/me', update);
     const user = response.data;
     store.setState({ userInfoLoading: false });
+    store.setState({ user });
     store.actions.ui.showMessage('Changes saved');
     return user;
   } catch (e) {
